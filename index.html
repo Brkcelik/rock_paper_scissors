@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="javascript.js"></script>
+</head>
+<body>
+    <script>
+        function getComputersChoice(){
+            const hands = ["Rock","Paper","Scissors"];
+            return aComputersChoice = hands[Math.floor(Math.random() * hands.length)];
+        }
+        function computeGame(computersChoice, playersChoice){
+            if (playersChoice != "rock" && playersChoice != "paper" && playersChoice != "scissors"){
+                console.log("Bad value!");
+            }
+            else if (computersChoice == playersChoice){
+                console.log("Tie!");
+                return 0;
+            }
+            else if (computersChoice == "rock"){
+                if (playersChoice == "paper"){
+                    console.log("You win!");
+                    return 1;
+                }
+                else if (playersChoice == "scissors"){
+                    console.log("You lose!");
+                    return -1;
+                }
+            }
+            else if (computersChoice == "paper"){
+                if (playersChoice == "scissors"){
+                    console.log("You win!");
+                    return 1;
+                }
+                else if (playersChoice == "rock"){
+                    console.log("You lose!");
+                    return -1;
+                }
+            }
+            else if (computersChoice == "scissors"){
+                if (playersChoice == "rock"){
+                    console.log("You win!");
+                    return 1;
+                }
+                else if (playersChoice == "paper"){
+                    console.log("You lose!")
+                    return -1;
+                }
+            }
+            else{
+                console.log("Bad type!");
+            }
+            return 0;
+        }
+        function playGame(){
+            let computersChoice = getComputersChoice().toLowerCase();
+            let playersChoice = prompt("PLS").toLowerCase();
+            console.log(playersChoice+" vs "+computersChoice);
+            return computeGame(computersChoice, playersChoice);
+        }
+        let score = 0;
+        score += playGame();
+        score += playGame();
+        score += playGame();
+        score += playGame();
+        score += playGame();
+        console.log(score);
+        
+    </script>
+</body>
+</html>
